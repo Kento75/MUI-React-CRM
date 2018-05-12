@@ -1,3 +1,3 @@
-import Button from './Button/Button';
-
-export { Button };
+//import Search from './Search/Search';
+import Page from './Page';
+export { Page };

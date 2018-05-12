@@ -6,7 +6,8 @@
     "material-ui": "^1.0.0-beta.47",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "react-tap-event-plugin": "^3.0.2"
   },
   "scripts": {
     "start": "webpack-dev-server --mode development --config webpack.dev.config",
@@ -14,7 +15,7 @@
     "build": "NODE_ENV=production webpack --mode production --config web.prod.config.js --colors",
     "build-windows": "set NODE_ENV=production  && webpack --config web.prod.config.js --mode production --colors",
     "build-staging": "NODE_ENV=staging webpack --mode production --config web.prod.config.js --colors",
-    "lintThis": "eslint src/* --ext .jsx --fix && eslint src/* --ext .js --fix"
+    "lintThis": "eslint src --ext .js,.jsx --fix"
   },
   "pre-commit": [
     "lintThis"
@@ -39,6 +40,7 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "favicons-webpack-plugin": "0.0.9",
     "html-webpack-plugin": "^3.2.0",
+    "json-server": "^0.12.2",
     "lodash": "^4.17.10",
     "node-sass": "^4.9.0",
     "optimize-css-assets-webpack-plugin": "^4.0.0",

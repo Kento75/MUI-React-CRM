@@ -1,4 +1,3 @@
-import Home from './Home/Home';
-import About from './About/About';
+//import Search from './Search/Search';
 
-export { Home, About };
+//export { Search };
