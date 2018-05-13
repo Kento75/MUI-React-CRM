@@ -1,3 +1,4 @@
 //import Search from './Search/Search';
 import Page from './Page';
-export { Page };
+import Hello from './Hello';
+export { Page, Hello };

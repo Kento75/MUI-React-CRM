@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-
 import Header from './common/Header/Header';
 
-class App extends Component {
+class HelloWorld extends Component {
   constructor(props) {
     super(props);
   }
@@ -10,10 +9,13 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header />
+        <div>
+          <Header />
+        </div>
+        <div>Hello World</div>
       </div>
     );
   }
 }
 
-export default App;
+export default HelloWorld;
