@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { hot } from 'react-hot-loader';
 import store from '../store';
-import { Page, Hello } from '../components';
+import { Top, Hello } from '../components';
 //import { Home, About } from '../containers';
 
 class Root extends Component {
@@ -12,7 +12,7 @@ class Root extends Component {
       <Provider store={store}>
         <Router>
           <div>
-            <Route exact path="/" component={Page} />
+            <Route exact path="/" component={Top} />
             <Route path="/hello" component={Hello} />
           </div>
         </Router>
