@@ -1,11 +1,8 @@
 import { combineReducers } from 'redux';
-//import toggle from './ToggleReducer';
-//import reducerA from './ReducerA';
-/*
+import searchPageReducer from './SearchPage/searchPageReducer';
+
 const rootReducer = combineReducers({
-  toggle,
-  reducerA,
+  searchPageReducer,
 });
 
 export default rootReducer;
-*/

@@ -1,3 +1,3 @@
-import toggle from './toggle';
+import searchPageAction from './SearchPage/searchPageAction';
 
-export { toggle };
+export { searchPageAction };

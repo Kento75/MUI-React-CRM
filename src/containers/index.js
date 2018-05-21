@@ -1,3 +1,3 @@
-//import Search from './Search/Search';
+import SearchPageContainer from './SearchPage/SearchPageContainer';
 
-//export { Search };
+export { SearchPageContainer };
