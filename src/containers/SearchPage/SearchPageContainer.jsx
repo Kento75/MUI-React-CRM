@@ -12,21 +12,31 @@ import { searchPageAction } from '../../actions';
 class SearchPageContainer extends Component {
   constructor(props) {
     super(props);
-
+    /** ActionBinds */
     this.handleChangeSearchWord = this.handleChangeSearchWord.bind(this);
     this.handleEnterSearchEdit = this.handleEnterSearchEdit.bind(this);
   }
 
+  /**
+   * 検索文字列変更時
+   * @param {object} e Elmオブジェクト
+   */
   handleChangeSearchWord(e) {
     const { searchActionBind } = this.props;
+    // 検索ボックス内の値を引数に渡す
     searchActionBind.changeSearchWord(e.target.value);
   }
 
+  /**
+   * 検索実行時
+   * @param {object} e Elmオブジェクト
+   */
   handleEnterSearchEdit(e) {
     const { searchActionBind } = this.props;
     const ENTER_KEY_CODE = 13;
+    // Enterキーを押下した場合は検索実行
     if (e.keyCode == ENTER_KEY_CODE) {
-      searchActionBind.search();
+      searchActionBind.searchData();
     }
   }
 

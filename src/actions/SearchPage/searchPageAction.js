@@ -1,6 +1,10 @@
 import request from 'axios';
 import * as types from '../types';
 
+/**
+ * 検索文字列変更時処理
+ * @param {string} searchWord 検索文字列
+ */
 export function changeSearchWord(searchWord) {
   return {
     type: types.CHANGE_SEARCH_WORD,
@@ -8,11 +12,17 @@ export function changeSearchWord(searchWord) {
   };
 }
 
+/**
+ * 実行中ダイアログ表示処理
+ */
 function requestProcess() {
   return { type: types.REQUEST_PROCESS };
 }
 
-export function search() {
+/**
+ * APIリクエスト(検索)処理
+ */
+export function searchData() {
   return (dispatch, getState) => {
     dispatch(requestProcess());
 
@@ -40,6 +50,10 @@ export function search() {
   };
 }
 
+/**
+ * アラートメッセージ変更処理
+ * @param {string} message アラートメッセージ
+ */
 export function changeAlertMessage(message) {
   return {
     type: types.CHANGE_ALERT_MESSAGE,
@@ -47,6 +61,12 @@ export function changeAlertMessage(message) {
   };
 }
 
+/**
+ * リクエストobject作成処理
+ * @param {string} url APIのURL
+ * @param {string} method REST区分(GET、POST、PUT、DELETE)
+ * @param {object} data 送信データ
+ */
 function makeRequest(url, method, data) {
   return request({
     url,
