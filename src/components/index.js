@@ -1,6 +1,6 @@
 /** commons */
-import AppHeader from './common/Header';
-import TextBox from './common/TextBox';
+import AppHeader from './common/Header/AppHeader';
+import TextBox from './common/TextBox/TextBox';
 
 /** pages */
 import TopPage from './TopPage';

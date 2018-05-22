@@ -14,6 +14,7 @@ class Root extends Component {
           <div>
             <Route exact path="/" component={TopPage} />
             <Route path="/hello" component={Hello} />
+            <Route path="/search" component={SearchPageContainer} />
           </div>
         </Router>
       </Provider>

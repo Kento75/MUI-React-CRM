@@ -1,5 +1,5 @@
 import request from 'axios';
-import * as types from '../types';
+import * as types from '../../types';
 
 /**
  * 検索文字列変更時処理

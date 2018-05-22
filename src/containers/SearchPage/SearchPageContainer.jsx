@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 /** Components */
 import DripTable from 'mui-drip-table';
-import AppHeader from '../components/AppHeader';
-import TextBox from '../components/TextBox';
+import { AppHeader, TextBox } from '../../components';
+
 /** Actions */
-import { searchPageAction } from '../../actions';
+import * as searchPageAction from '../../actions';
 
 class SearchPageContainer extends Component {
   constructor(props) {
@@ -35,7 +35,7 @@ class SearchPageContainer extends Component {
     const { searchActionBind } = this.props;
     const ENTER_KEY_CODE = 13;
     // Enterキーを押下した場合は検索実行
-    if (e.keyCode == ENTER_KEY_CODE) {
+    if (e.keyCode === ENTER_KEY_CODE) {
       searchActionBind.searchData();
     }
   }
@@ -60,12 +60,12 @@ class SearchPageContainer extends Component {
 
 SearchPageContainer.propTypes = {
   tableTitle: PropTypes.string.isRequired,
-  tableColumns: PropTypes.arrayOf.isRequired,
+  tableColumns: PropTypes.any,
   tableOptions: PropTypes.object.isRequired,
   labelText: PropTypes.string.isRequired,
   placeholderText: PropTypes.string.isRequired,
   searchWord: PropTypes.string.isRequired,
-  searchedList: PropTypes.arrayOf.isRequired,
+  searchedList: PropTypes.any,
 };
 
 function mapStateToProps(state) {
