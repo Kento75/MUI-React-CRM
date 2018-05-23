@@ -8,6 +8,7 @@ import { AppHeader, TextBox } from '../../components';
 
 /** Actions */
 import * as searchPageAction from '../../actions';
+import LoadingDialog from '../../components/common/Dialog/LoadingDialog';
 
 class SearchPageContainer extends Component {
   constructor(props) {
@@ -41,7 +42,7 @@ class SearchPageContainer extends Component {
   }
 
   render() {
-    const { tableTitle, tableColumns, tableOptions, labelText, placeholderText, searchWord, searchedList } = this.props;
+    const { tableTitle, tableColumns, tableOptions, labelText, placeholderText, searchWord, searchedList, isLoadingOpen, progressColor } = this.props;
     return (
       <div>
         <AppHeader />
@@ -53,6 +54,9 @@ class SearchPageContainer extends Component {
           onChangeFunc={this.handleChangeSearchWord}
         />
         <DripTable title={tableTitle} columns={tableColumns} options={tableOptions} data={searchedList} />
+        <LoadingDialog
+          isLoadingOpen={isLoadingOpen} progressColor={progressColor}
+        />
       </div>
     );
   }
@@ -60,16 +64,18 @@ class SearchPageContainer extends Component {
 
 SearchPageContainer.propTypes = {
   tableTitle: PropTypes.string.isRequired,
-  tableColumns: PropTypes.any,
+  tableColumns: PropTypes.array.isRequired,
   tableOptions: PropTypes.object.isRequired,
   labelText: PropTypes.string.isRequired,
   placeholderText: PropTypes.string.isRequired,
   searchWord: PropTypes.string.isRequired,
-  searchedList: PropTypes.any,
+  searchedList: PropTypes.array,
+  isLoadingOpen: PropTypes.bool.isRequired,
+  progressColor: PropTypes.string.isRequired,
 };
 
 function mapStateToProps(state) {
-  const { tableTitle, tableColumns, tableOptions, labelText, placeholderText, searchWord, searchedList } = state.searchPageReducer;
+  const { tableTitle, tableColumns, tableOptions, labelText, placeholderText, searchWord, searchedList, isLoadingOpen, progressColor } = state.searchPageReducer;
   return {
     tableTitle,
     tableColumns,
@@ -78,6 +84,8 @@ function mapStateToProps(state) {
     placeholderText,
     searchWord,
     searchedList,
+    isLoadingOpen,
+    progressColor,
   };
 }
 
