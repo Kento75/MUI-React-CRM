@@ -7,6 +7,7 @@ class TopPage extends Component {
     return (
       <div>
         <AppHeader />
+        <h1>TOP Page</h1>
       </div>
     );
   }

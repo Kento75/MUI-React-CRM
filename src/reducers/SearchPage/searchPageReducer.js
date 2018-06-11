@@ -49,7 +49,7 @@ const defaultState = {
   // 検索結果
   searchList: [],
   // ロードダイアログ表示フラグ
-  isLoadingOpen: false,
+  isLoadingDialogOpen: false,
   // プログレスバーの色
   progressColor: '#FF9800',
 };
@@ -66,20 +66,20 @@ const searchPageReducer = (state = defaultState, action) => {
     case types.SUCCESS_SEARCH:
       return {
         ...state,
-        isLoadingOpen: false,
+        isLoadingDialogOpen: false,
         searchList: action.result,
       };
     // 検索以上終了時
     case types.FAILED_SEARCH:
       return {
         ...state,
-        isLoadingOpen: false,
+        isLoadingDialogOpen: false,
       };
     // 検索実行時
     case types.REQUEST_PROCESS:
       return {
         ...state,
-        isLoadingOpen: true,
+        isLoadingDialogOpen: true,
       };
     // アラートメッセージ変更処理
     case types.CHANGE_ALERT_MESSAGE:

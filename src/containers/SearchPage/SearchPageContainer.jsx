@@ -4,11 +4,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 /** Components */
 import DripTable from 'mui-drip-table';
-import { AppHeader, TextBox } from '../../components';
+import { AppHeader, TextBox, LoadingDialog, ResultDialog } from '../../components';
 
 /** Actions */
 import * as searchPageAction from '../../actions';
-import LoadingDialog from '../../components/common/Dialog/LoadingDialog';
 
 class SearchPageContainer extends Component {
   constructor(props) {
@@ -42,10 +41,23 @@ class SearchPageContainer extends Component {
   }
 
   render() {
-    const { tableTitle, tableColumns, tableOptions, labelText, placeholderText, searchWord, searchedList, isLoadingOpen, progressColor } = this.props;
+    const {
+      tableTitle, // 【テーブル】タイトル
+      tableColumns, // 【テーブル】カラム一覧
+      tableOptions, // テーブルオプション
+      labelText, // 【テキストボックス】ラベル
+      placeholderText, // 【テキストボックス】ヒントテキスト
+      searchWord, // 【テキストボックス】検索文字列
+      searchedList, // 【テーブル】データ一覧
+      isLoadingDialogOpen, // 【ロードダイアログ】表示フラグ
+      progressColor, // 【ロードダイアログ】プログレスバーの色
+      isResultDialogOpen, // 【処理結果ダイアログ】表示フラグ
+    } = this.props;
     return (
       <div>
+        {/* アプリケーションヘッダー */}
         <AppHeader />
+        {/* 検索ボックス */}
         <TextBox
           labelText={labelText}
           placeholderText={placeholderText}
@@ -53,10 +65,12 @@ class SearchPageContainer extends Component {
           onKeyDownFunc={this.handleEnterSearchEdit}
           onChangeFunc={this.handleChangeSearchWord}
         />
+        {/* テーブル */}
         <DripTable title={tableTitle} columns={tableColumns} options={tableOptions} data={searchedList} />
-        <LoadingDialog
-          isLoadingOpen={isLoadingOpen} progressColor={progressColor}
-        />
+        {/* ロードダイアログ */}
+        <LoadingDialog isLoadingOpen={isLoadingDialogOpen} progressColor={progressColor} />
+        {/* 処理結果ダイアログ */}
+        <ResultDialog isResultDialogOpen={isResultDialogOpen} />
       </div>
     );
   }
@@ -70,12 +84,22 @@ SearchPageContainer.propTypes = {
   placeholderText: PropTypes.string.isRequired,
   searchWord: PropTypes.string.isRequired,
   searchedList: PropTypes.array,
-  isLoadingOpen: PropTypes.bool.isRequired,
+  isLoadingDialogOpen: PropTypes.bool.isRequired,
   progressColor: PropTypes.string.isRequired,
 };
 
 function mapStateToProps(state) {
-  const { tableTitle, tableColumns, tableOptions, labelText, placeholderText, searchWord, searchedList, isLoadingOpen, progressColor } = state.searchPageReducer;
+  const {
+    tableTitle,
+    tableColumns,
+    tableOptions,
+    labelText,
+    placeholderText,
+    searchWord,
+    searchedList,
+    isLoadingDialogOpen,
+    progressColor,
+  } = state.searchPageReducer;
   return {
     tableTitle,
     tableColumns,
@@ -84,7 +108,7 @@ function mapStateToProps(state) {
     placeholderText,
     searchWord,
     searchedList,
-    isLoadingOpen,
+    isLoadingDialogOpen,
     progressColor,
   };
 }

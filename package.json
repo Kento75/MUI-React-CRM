@@ -1,12 +1,12 @@
 {
-  "name": "mui-react-redux-webpack4-kit",
+  "name": "react-redux-crm-kit",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^1.0.0",
     "@material-ui/icons": "^1.0.0",
     "material-ui": "^1.0.0-beta.47",
-    "mui-drip-table": "^0.1.3",
+    "mui-drip-table": "latest",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
